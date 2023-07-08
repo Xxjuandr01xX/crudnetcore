@@ -1,0 +1,40 @@
+﻿@model ContactModel
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row clearfix">
+    <div class="col-md-10">
+        <div class="card w-100">
+            <div class="card-body table-responsive">
+                <form asp-action="Editar" asp-controller="Crud" method="post">
+                    <div class="mb-3">
+                        <input asp-for="Id" type="hidden">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre y Apellido</label>
+                        <input asp-for="NomApe" type="text" class="form-control" placeholder="Ej:Juan Rincon">
+                        <label asp-validation-for="NomApe" class="text-danger text-start"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Correo Electronico</label>
+                        <input asp-for="Correo" type="email" class="form-control" placeholder="Ej:jd.rincon021@gmail.com">
+                        <label asp-validation-for="Correo" class="text-danger text-start"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telefono</label>
+                        <input asp-for="Telefono" type="text" class="form-control" placeholder="Ej:0414-6801859">
+                        <label asp-validation-for="Telefono" class="text-danger text-start"></label>
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" class="btn btn-warning" value="Actualizar"></input>
+                        <a asp-action="Index" asp-controller="Crud" class="btn btn-outline-primary">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

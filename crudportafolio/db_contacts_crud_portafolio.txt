@@ -1,0 +1,14 @@
+create database contact;
+use contact;
+create table contact_list(
+	id int not null primary key identity,
+	nom_ape varchar(80) not null,
+	correo varchar(100) not null,
+	telefono varchar(20) not null
+);
+
+create procedure contact_listar as select * from contact_list;
+create procedure contact_guardar (@nomape varchar(100), @correo varchar(100), @telefono varchar(20)) as insert into contact_list (nom_ape, correo, telefono) values (@nomape, @correo, @telefono);
+
+
+Data Source=DESKTOP-FD9PPHK\LOCAL;Initial Catalog=contact;User ID=sa;Password=123456789

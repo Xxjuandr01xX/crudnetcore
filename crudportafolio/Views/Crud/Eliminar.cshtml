@@ -1,0 +1,32 @@
+﻿@model ContactModel
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row clearfix">
+    <div class="col-md-10">
+        <div class="card w-100">
+            <div class="card-body table-responsive">
+                <form asp-action="Eliminar" asp-controller="Crud" method="post">
+                    <div class="alert alert-danger" role="alert">
+                        <div class="mb-3">
+                            <input asp-for="Id" type="hidden" >
+                        </div>
+
+                        <p class="text-center">
+                            Estas seguro que deseas eliminar a <strong> @ViewBag.Nombre</strong>?
+                        </p>
+                    
+                        <div class="mb-3 d-flex justify-content-center">
+                            <input type="submit" class="btn btn-danger" value="Eliminar Registro"></input>
+                            </br>
+                            <a asp-action="Index" asp-controller="Crud" class="btn btn-outline-danger">Regresar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

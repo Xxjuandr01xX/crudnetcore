@@ -1,0 +1,44 @@
+﻿@model List<ContactModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row clearfix">
+    <div class="col-md-10">
+        
+        <div class="card w-100">
+            <div class="row clearfix d-flex justify-content-end">
+                <div class="col-md-2 mt-3 mb-3">
+                    <a asp-action="Insert" asp-controller="Crud" class="btn btn-outline-primary rounded-0">Nuevo</a>
+                </div>
+            </div>
+            <div class="card-body table-responsive">
+                <table class="table w-100">
+                    <thead>
+                        <tr>
+                            <td scope="col">Nombre y Apellido</td>
+                            <td scope="col">Correo</td>
+                            <td scope="col">Telefono</td>
+                            <td scope="col">Acciones</td>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        @foreach(var item in Model){
+                        <tr>
+                            <td>@item.NomApe</td>
+                            <td>@item.Correo</td>
+                            <td>@item.Telefono</td>
+                            <td>
+                                    <p><a class="btn btn-danger btn-sm" asp-route-id="@item.Id" asp-action="Eliminar" asp-controller="Crud">Eliminar</a> <a asp-route-id="@item.Id" class="btn btn-warning btn-sm"  asp-action="Editar" asp-controller="Crud">Editar</a></p>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
